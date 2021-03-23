@@ -1,0 +1,18 @@
+header {
+  height: 400px;
+  background-color: burlywood;
+  background-color: #3d5b70;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
