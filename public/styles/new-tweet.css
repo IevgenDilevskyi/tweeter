@@ -34,3 +34,7 @@ h2 {
   justify-content: space-between;
   padding: 10px, 0px, 10px, 0px;
 }
+
+.char-over {
+  color: red;
+}
