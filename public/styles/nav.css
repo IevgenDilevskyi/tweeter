@@ -1,4 +1,7 @@
 nav {
+  position: sticky;
+  top: 0px;
+  width: auto;
   height: 120px;
   background-color: #4056A1;
   color: #FFFFFF;

@@ -1,3 +1,8 @@
+#tweets {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 #tweets article header{
   height: 50px;
   display: flex;
