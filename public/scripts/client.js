@@ -16,7 +16,7 @@ const escape =  function(str) { // Helper function to escape text from user (for
 $(document).ready(function() {
 
   const createTweetElement = function(tweetData) { // Creates new tweet with html structure
-
+    const readableDate = new Date(tweetData.created_at).toLocaleDateString('en-gb');
     const $tweet = $(`
     <article class="tweet">
       <header>
@@ -25,7 +25,7 @@ $(document).ready(function() {
       </header>
       <p>${escape(tweetData.content.text)}</p>
       <footer>
-        <div class="date">${tweetData.created_at}</div>
+        <div class="date">${readableDate}</div>
         <div class="likes"> <i class="fab fa-font-awesome-flag"></i> <i class="fas fa-retweet"></i><i class="fas fa-heart"></i></div>
       </footer>
     </article>`);

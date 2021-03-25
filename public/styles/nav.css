@@ -1,9 +1,11 @@
 nav {
   position: sticky;
   top: 0px;
+  z-index: 1;
   width: auto;
   height: 120px;
-  background-color: #4056A1;
+  background-color: #3d5b70;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;

@@ -17,9 +17,9 @@
     
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
@@ -38,33 +38,34 @@
       <span>TWEETER</span>
       <div> Write a new tweet</div>
     </nav>
+    <div id="head-and-container">
+      <header>
+        <div class="avatar">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div class="userName">
+            <h2>Ievgen Dilevskyi</h2>
+        </div>
+      </header>
 
-    <header>
-      <div class="avatar">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div class="userName">
-          <h2>Your Name</h2>
-      </div>
-  </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets/" method="POST">
+            <label for="tweet-text">What are you humming about?</label> <div id="length-err-msg"></div>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="bottomLine">
+              <button id="tweetBtn" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+          <section id="tweets">
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label> <div id="length-err-msg"></div>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="bottomLine">
-            <button id="tweetBtn" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-        <section id="tweets">
-
+          </section>
         </section>
-      </section>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

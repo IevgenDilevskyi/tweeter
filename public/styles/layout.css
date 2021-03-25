@@ -26,7 +26,43 @@ body {
  */
 
 .container {
-  margin: auto;
+  margin-left: 40px;
+  margin-right: 40px;
   display: flex;
   width: 90%;
  }
+
+ /*------------------------Responsive Design-----------------------------*/
+
+ @media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+    background-image: none;    
+  }
+
+  #head-and-container {
+    display: flex;
+    margin-top: 80px;
+    margin-left: 80px;
+  }
+
+  header {
+    width: 40%;
+    position: sticky;
+    top:120px;
+  }
+
+  /* .feature {
+    width: 33.3%;
+    line-height: 600px;
+  }
+
+  .content {
+    width: 66.7%;
+    float: right
+  }
+
+  .footer {
+    clear: right;
+  } */
+}
