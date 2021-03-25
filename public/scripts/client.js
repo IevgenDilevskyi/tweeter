@@ -3,17 +3,27 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// $("<p>").text(${tweetData.content.text});
+{/* <p>${tweetData.content.text}</p> */}
+// `<p>${escape(${tweetData.content.text})}</p>
+
+const escape =  function(str) { // Helper function to escape text from user (for XSS). We use it in the createTweetElement function
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 $(document).ready(function() {
 
   const createTweetElement = function(tweetData) { // Creates new tweet with html structure
+
     const $tweet = $(`
     <article class="tweet">
       <header>
         <h4> <img src="${tweetData.user.avatars}"> ${tweetData.user.name} </h4>
         <h5> ${tweetData.user.handle} </h5>
       </header>
-      <p>${tweetData.content.text}</p>
+      <p>${escape(tweetData.content.text)}</p>
       <footer>
         <div class="date">${tweetData.created_at}</div>
         <div class="likes"> <i class="fab fa-font-awesome-flag"></i> <i class="fas fa-retweet"></i><i class="fas fa-heart"></i></div>
@@ -21,15 +31,11 @@ $(document).ready(function() {
     </article>`);
     return $tweet
   }
-/*
-  const $createdTweet = createTweetElement(tweetData);  
-  $('#tweets').append($createdTweet);
-*/
 
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {   // loops through tweets
       let $result = createTweetElement(tweet) // calls createTweetElement for each tweet
-      $('#tweets').append($result);  // takes return value and appends it to the tweets container
+      $('#tweets').prepend($result);  // takes return value and prepends it to the tweets container
     }
   }
 
