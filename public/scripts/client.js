@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// $("<p>").text(${tweetData.content.text});
+
 {/* <p>${tweetData.content.text}</p> */}
 // `<p>${escape(${tweetData.content.text})}</p>
 
@@ -43,10 +43,16 @@ $(document).ready(function() {
     event.preventDefault(); // Prevent default action
     const $serialized = $( this ).serialize(); //Create jQuery string out of form data (text=....)
     let textLength = $('#tweet-text').val().length;
+    $("#err").slideUp();
     if (textLength <= 0) {
-      alert('You can\'t send empty tweet')
+      const errShort = $(`<p id="err">Error. You can't send empty tweet </p>`);
+      $('#length-err-msg').prepend(errShort)
+      $("#err").slideDown();
+
     } else if (textLength > 140) {
-      alert('Your tweet is too long. Make it shorter')
+      const errLong = $(`<p id="err">Error. Your tweet is too long. Make it shorter </p>`);
+      $('#length-err-msg').prepend(errLong)
+      $("#err").slideDown();
     } else {
         $.ajax({ url: "/tweets", data: $serialized, type: 'POST' }) // Ajax request sending serialized data to /tweets URL
         .then(function (result) {
@@ -56,6 +62,7 @@ $(document).ready(function() {
               const $createdTweet = createTweetElement(jsonResponse[jsonResponse.length - 1]); //Creates HTML structured tweet
               // console.log("created", $createdTweet)
               $('#tweets').prepend($createdTweet) // And adds it to the beginning of the page
+              $('#tweet-text').val("")
             });
         });
       }

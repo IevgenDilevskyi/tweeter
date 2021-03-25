@@ -38,3 +38,16 @@ h2 {
 .char-over {
   color: red;
 }
+
+#length-err-msg p {
+  color:white;
+  background: #c51244;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0;
+  position: relative; 
+  display: inline-block;
+  display: none;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+}
