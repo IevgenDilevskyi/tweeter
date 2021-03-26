@@ -1,7 +1,6 @@
 header {
   width: 100%;
   height: 400px;
-  background-color: burlywood;
   background-color: #3d5b70;
   background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
 }
@@ -12,8 +11,14 @@ header {
   align-items: center;
 }
 
+.avatar img {
+  border-radius: 40%;
+  padding-top: 40px;
+}
+
 .userName {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }

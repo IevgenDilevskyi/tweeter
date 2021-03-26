@@ -46,23 +46,9 @@ body {
     margin-left: 80px;
   }
 
-  header {
+  header #user-info {
     width: 40%;
     position: sticky;
     top:120px;
   }
-
-  /* .feature {
-    width: 33.3%;
-    line-height: 600px;
-  }
-
-  .content {
-    width: 66.7%;
-    float: right
-  }
-
-  .footer {
-    clear: right;
-  } */
 }

@@ -54,11 +54,19 @@
   font-size: 15px;
 }
 
+#tweets .likes {
+  display: none;
+}
+
 #tweets article:hover {
   box-shadow: 5px 5px 3px #666;
   opacity: 1; 
 }
 
 #tweets article:hover h5 {
+  display: block;
+}
+
+#tweets article:hover .likes {
   display: block;
 }
