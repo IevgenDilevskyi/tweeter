@@ -4,6 +4,12 @@ Tweeter is a simple, single-page Twitter clone.
 
 Built with HTML, CSS, JS, jQuery and AJAX front-end and Node, Express back-end technologies.
 
+# Screenshots
+
+!["Desktop version"](https://github.com/IevgenDilevskyi/tweeter/blob/master/docs/Desktop%20version.png)
+!["Mobile version"](https://github.com/IevgenDilevskyi/tweeter/blob/master/docs/Mobile%20screen%20design.png)
+!["https://github.com/IevgenDilevskyi/tweeter/blob/master/docs/Too%20long%20tweet%20error.png"](https://github.com/IevgenDilevskyi/tweeter/blob/master/docs/Too%20long%20tweet%20error.png)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
