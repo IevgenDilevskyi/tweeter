@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape =  function(str) {           // Helper function to escape text from user (for XSS). We use it in the createTweetElement function
+const escape = function (str) {           // Helper function to escape text from user (for XSS). We use it in the createTweetElement function
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -14,9 +14,9 @@ const timeSinceTweet = (unix) => {        // Function returning time passed sinc
   return moment(unix).fromNow();
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-  const createTweetElement = function(tweetData) { // Creates new tweet with html structure
+  const createTweetElement = function (tweetData) { // Creates new tweet with html structure
     const $tweet = $(`
     <article class="tweet">
       <header>
@@ -32,14 +32,14 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     for (let tweet of tweets) {                 // loops through tweets
       let $result = createTweetElement(tweet);  // calls createTweetElement for each tweet
       $('#tweets').prepend($result);            // takes return value and prepends it to the tweets container
     }
   };
 
-  $(".new-tweet form").on("submit", function(event) {
+  $(".new-tweet form").on("submit", function (event) {
     event.preventDefault();                   // Prevent default action
     const $serialized = $(this).serialize(); //Create jQuery string out of form data (text=....)
     let textLength = $('#tweet-text').val().length;
@@ -55,9 +55,9 @@ $(document).ready(function() {
       $("#err").slideDown();
     } else {
       $.ajax({ url: "/tweets", data: $serialized, type: 'POST' }) // Ajax request sending serialized data to /tweets URL
-        .then(function(result) {
+        .then(function (result) {
           $.ajax('/tweets', { method: 'GET' }) // Gets the tweets from /tweets
-            .then(function(jsonResponse) {
+            .then(function (jsonResponse) {
               const $createdTweet = createTweetElement(jsonResponse[jsonResponse.length - 1]); //Creates HTML structured tweet
               $('#tweets').prepend($createdTweet); // And adds it to the beginning of the page
               $('#tweet-text').val("");
@@ -67,9 +67,9 @@ $(document).ready(function() {
     }
   });
 
-  const loadtweets = function() { // Requests array of tweet objects and passes them to renderTweets function
+  const loadtweets = function () { // Requests array of tweet objects and passes them to renderTweets function
     $.ajax('/tweets', { method: 'GET' })
-      .then(function(jsonResponse) {
+      .then(function (jsonResponse) {
         renderTweets(jsonResponse);
       });
 
